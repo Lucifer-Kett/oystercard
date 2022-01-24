@@ -19,4 +19,7 @@ lukecollins@Lukes-MacBook-Air oystercard % irb
 3.0.0 :002 > card = Oystercard.new(30)
  => #<Oystercard:0x000000015c14a250 @balance=30> 
 
+ Chap5:
+ Add top_up def which adds an argument to balance.
+
  
