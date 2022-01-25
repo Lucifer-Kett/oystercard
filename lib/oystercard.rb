@@ -1,5 +1,5 @@
 class Oystercard
-attr_reader :balance
+attr_reader :balance, :in_journey
 
 LIMIT = 90
 
@@ -16,5 +16,9 @@ LIMIT = 90
 
    def deduct(amount)
          @balance -= amount
+   end
+
+   def touch_in
+      @in_journey = true
    end
 end
