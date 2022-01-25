@@ -12,4 +12,8 @@ describe Oystercard do
     expect(card.top_up(20)).to eq(20)
     end
 
+    it 'does not exceed the limit' do
+        card.top_up(100)
+        expect {card.limit}.to raise_error('Exceeds max balance')
+    end
 end
