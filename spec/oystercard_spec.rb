@@ -22,8 +22,13 @@ describe Oystercard do
         expect(card2.deduct(5)).to eq(15)
     end
 
-    it 'can touch in and out of the barrier' do
+    it 'can touch in to the barrier' do
         card.touch_in
-        expect(card.in_journey).to eq(true)
+        expect {card.in_journey?} == true
+    end
+
+    it 'can touch out of the barrier' do
+        card.touch_out
+        expect {card.in_journey?} == false
     end
 end
