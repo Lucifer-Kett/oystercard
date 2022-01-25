@@ -8,4 +8,9 @@ attr_reader :balance
    def top_up(add)
     @balance += add
    end
+
+   private
+
+   def limit()
+
 end
