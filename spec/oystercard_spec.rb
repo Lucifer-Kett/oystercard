@@ -13,7 +13,7 @@ describe Oystercard do
     end
 
     it 'does not exceed the limit' do
-        card.top_up(100)
-        expect {card.limit}.to raise_error('Exceeds max balance')
+       card2 = Oystercard.new(100)
+      expect {card.top_up(100)}.to raise_error('Exceeds max balance')
     end
 end
