@@ -14,10 +14,7 @@ LIMIT = 90
       end
    end
 
-   private
-
-   # def limit
-   #    p @balance
-   #    p fail 'Exceeds max balance' if @balance >= 90
-   # end
+   def deduct(amount)
+         @balance -= amount
+   end
 end
