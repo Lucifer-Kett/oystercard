@@ -21,7 +21,7 @@ FARE = 1
    end
 
    def touch_in
-     fail 'Not enough balance for fare' if @balance <= Oystercard::FARE 
+     fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
       @in_journey = true 
    end
 
