@@ -1,7 +1,8 @@
 require 'oystercard.rb'
 
 describe Oystercard do
-    card = Oystercard.new(10)
+    let(:card){Oystercard.new(10)}
+    let(:entry_station){double :station}
 
     it 'can begin with a balance' do
     expect(card.balance).to eq(10)
@@ -16,7 +17,7 @@ describe Oystercard do
     end
 
     it 'can touch in to the barrier' do
-        card.touch_in
+        card.touch_in(entry_station)
         expect {card.in_journey?} == true
     end
 
@@ -27,10 +28,14 @@ describe Oystercard do
 
     it 'does not touch out if balance cannot cover fare' do
         card.balance = 0
-        expect {card.touch_in}.to raise_error "Not enough balance for fare of £#{Oystercard::FARE}"
+        expect {card.touch_in(entry_station)}.to raise_error "Not enough balance for fare of £#{Oystercard::FARE}"
     end
 
     it 'deducts the fare from balance when touching out' do
         expect {card.touch_out}.to change{card.balance}.by(-1)
+    end
+
+    it 'remember the entry station after touch_in' do
+    expect(card.touch_in(entry_station)).to eq(entry_station)
     end
 end

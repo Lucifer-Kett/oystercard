@@ -16,9 +16,10 @@ FARE = 1
       end
    end
 
-   def touch_in
+   def touch_in(station)
      fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
       @in_journey = true 
+      station
    end
 
    def touch_out
