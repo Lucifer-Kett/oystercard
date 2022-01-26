@@ -1,4 +1,5 @@
-require 'oystercard.rb'
+require 'oystercard'
+require 'station'
 
 describe Oystercard do
     let(:card){Oystercard.new(10)}
@@ -49,4 +50,6 @@ describe Oystercard do
         card.touch_out('London')
         expect(card.journey_log).to eq('York' => 'London')
     end
+
+    
 end
