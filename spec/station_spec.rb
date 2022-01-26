@@ -8,4 +8,7 @@ describe Station do
     expect(station.name('York')).to eq('York')
   end
 
+  it 'shows the station zone' do
+    expect(station.zone(1)).to eq(1)
+  end
 end
