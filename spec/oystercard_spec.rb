@@ -37,5 +37,8 @@ describe Oystercard do
 
     it 'remember the entry station after touch_in' do
     expect(card.touch_in(entry_station)).to eq(entry_station)
+    p entry_station
     end
+
+
 end

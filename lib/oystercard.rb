@@ -1,5 +1,5 @@
 class Oystercard
-attr_accessor :balance, :in_journey
+attr_accessor :balance, :entry_station
 
 LIMIT = 90
 FARE = 1
@@ -16,15 +16,18 @@ FARE = 1
       end
    end
 
-   def touch_in(station)
-     fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
-      @in_journey = true 
-      station
+   def touch_in(entry_station)
+      fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
+      entry_station
    end
 
    def touch_out
-       @in_journey = false
-       self.deduct(FARE)
+      self.deduct(FARE)
+      @entry_station = nil
+   end
+
+   def in_journey?
+      ! !entry_station
    end
 
    private
