@@ -50,6 +50,5 @@ describe Oystercard do
         card.touch_out('London')
         expect(card.journey_log).to eq('York' => 'London')
     end
-
     
 end
