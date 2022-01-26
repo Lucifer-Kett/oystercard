@@ -17,7 +17,7 @@ FARE = 1
    end
 
    def deduct(amount)
-         @balance -= amount
+      @balance -= amount
    end
 
    def touch_in
@@ -27,5 +27,6 @@ FARE = 1
 
    def touch_out
        @in_journey = false
+       self.deduct(FARE)
    end
 end

@@ -34,4 +34,8 @@ describe Oystercard do
         card.balance = 0
         expect {card.touch_in}.to raise_error "Not enough balance for fare of £#{Oystercard::FARE}"
     end
+
+    it 'deducts the fare from balance when touching out' do
+        expect {card.touch_out}.to change{card.balance}.by(-1)
+    end
 end
