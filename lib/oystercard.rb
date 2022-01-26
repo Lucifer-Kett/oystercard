@@ -16,10 +16,6 @@ FARE = 1
       end
    end
 
-   def deduct(amount)
-      @balance -= amount
-   end
-
    def touch_in
      fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
       @in_journey = true 
@@ -28,5 +24,11 @@ FARE = 1
    def touch_out
        @in_journey = false
        self.deduct(FARE)
+   end
+
+   private
+
+   def deduct(amount)
+      @balance -= amount
    end
 end

@@ -15,11 +15,6 @@ describe Oystercard do
       expect {card.top_up(100)}.to raise_error("Exceeds max balance of #{Oystercard::LIMIT}")
     end
 
-    it 'can deduct the money' do
-       card.balance = 10
-        expect(card.deduct(5)).to eq(5)
-    end
-
     it 'can touch in to the barrier' do
         card.touch_in
         expect {card.in_journey?} == true
