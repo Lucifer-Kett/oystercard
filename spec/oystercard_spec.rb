@@ -40,6 +40,10 @@ describe Oystercard do
         expect(card.touch_in(entry_station)).to eq(entry_station)
     end
 
+    it 'checks that the journey log starts as empty' do
+        expect(card.journey_log).to be_empty
+    end
+
     it 'logs the journey' do
         card.touch_in('York')
         card.touch_out('London')
