@@ -19,15 +19,15 @@ describe Oystercard do
       expect {card.top_up(100)}.to raise_error("Exceeds max balance of #{Oystercard::LIMIT}")
     end
 
-    it 'can touch in to the barrier' do
-        card.touch_in(entry_station)
-        expect {card.in_journey?} == true
-    end
+    # it 'can touch in to the barrier' do
+    #     card.touch_in(entry_station)
+    #     expect {card.in_journey?} == true
+    # end
 
-    it 'can touch out of the barrier' do
-        card.touch_out(exit_station)
-        expect {card.in_journey?} == false
-    end
+    # it 'can touch out of the barrier' do
+    #     card.touch_out(exit_station)
+    #     expect {card.in_journey?} == false
+    # end
 
     it 'does not touch out if balance cannot cover fare' do
         expect {card0.touch_in(entry_station)}.to raise_error "Not enough balance for fare of £#{Oystercard::FARE}"
@@ -40,15 +40,4 @@ describe Oystercard do
     it 'remember the entry station after touch_in' do
         expect(card.touch_in(entry_station)).to eq(entry_station)
     end
-
-    it 'checks that the journey log starts as empty' do
-        expect(card.journey_log).to be_empty
-    end
-
-    it 'logs the journey' do
-        card.touch_in('York')
-        card.touch_out('London')
-        expect(card.journey_log).to eq('York' => 'London')
-    end
-    
 end

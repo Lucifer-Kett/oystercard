@@ -7,8 +7,7 @@ FARE = 1
 
    def initialize(balance = 0)
      @balance = balance
-     @journey_log = ({})
-     
+   #   @journey_log = ({})
    end
 
    def top_up(amount)
@@ -21,20 +20,19 @@ FARE = 1
    def touch_in(entry_station)
       fail "Not enough balance for fare of £#{Oystercard::FARE}" if @balance <= Oystercard::FARE 
       @entry_station = entry_station
-      
    end
 
    def touch_out(exit_station)
       @entry_station
       self.deduct(FARE)
-      journey_log.merge!(entry_station => exit_station)
+      # journey_log.merge!(entry_station => exit_station)
       entry_station = nil
       exit_station
    end
 
-   def in_journey?
-      ! !entry_station
-   end
+   # def in_journey?
+   #    ! !entry_station
+   # end
 
    private
 
